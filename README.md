@@ -142,7 +142,7 @@ investment-engine/
       0001_create_tables.py  # creates both tables + seeds watchlist
     env.py
     script.py.mako
-  alembic.ini
+    alembic.ini
   docker-compose.yml
   requirements.txt
   .env.example
