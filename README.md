@@ -12,7 +12,7 @@ cp .env.example .env
 
 # 2. Start PostgreSQL and run migrations
 docker-compose up -d
-alembic upgrade head
+alembic -c migrations/alembic.ini upgrade head
 
 # 3. Run the ingestion script
 python -m agents.agent_01_sec
@@ -61,7 +61,7 @@ copy .env.example .env          # Windows
 # cp .env.example .env          # Mac/Linux
 
 docker-compose up -d            # starts PostgreSQL on port 5432
-alembic upgrade head            # creates tables + seeds watchlist rows
+alembic -c migrations/alembic.ini upgrade head  # creates tables + seeds watchlist rows
 
 python -m agents.agent_01_sec   # first run: inserts new rows
 python -m agents.agent_01_sec   # second run: all rows skipped (dedupe)
@@ -165,8 +165,9 @@ investment-engine/
 
 ## Screenshots
 
-> Add a screenshot of `raw_events` after the first successful run here.
-> Add a second screenshot after re-running to confirm the row count did not change.
+First run:![1.jpg](1.jpg)
+Second run:![2.jpg](2.jpg)
+
 
 ---
 
